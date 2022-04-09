@@ -5,5 +5,8 @@ function Ship(name) {
     this.startingPort = 'Dover';
 }
 
+Ship.prototype.setSail = function () {
+    this.startingPort = false
+};
 
-module.exports = Ship;
+module.exports = Ship

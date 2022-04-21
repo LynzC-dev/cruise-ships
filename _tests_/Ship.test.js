@@ -44,29 +44,29 @@ describe('Ship', () => {
 
        expect(dover.ships).toContain(ship);
    });
-});
 
-it('can dock at a different port', () => {
-    const dover = new Port('Dover');
-    const calais = new Port('Calais');
-    const itinerary = new Itinerary([dover, calais]);
-    const ship = new Ship(itinerary);
+    it('can dock at a different port', () => {
+    // const dover = new Port('Dover');
+    // const calais = new Port('Calais');
+    // const itinerary = new Itinerary([dover, calais]);
+    // const ship = new Ship(itinerary);
     
      ship.setSail();
      ship.dock();
 
- expect(ship.currentPort).toBe(calais);
- expect(calais.ships).toContain(ship);
-});
-it('cannot sail further than its itinerary', () => {
-    const dover = new Port('Dover');
-    const calais = new Port('Calais');
-    const itinerary = new Itinerary([dover, calais]);
-    const ship = new Ship(itinerary);
+    expect(ship.currentPort).toBe(calais);
+    expect(calais.ships).toContain(ship);
+    });
+    it('cannot sail further than its itinerary', () => {
+    // const dover = new Port('Dover');
+    // const calais = new Port('Calais');
+    // const itinerary = new Itinerary([dover, calais]);
+    // const ship = new Ship(itinerary);
 
     ship.setSail();
     ship.dock();
 
     expect(() => ship.setSail()).toThrowError('End of itinerary reached');
-});
+    });
+    });
 });

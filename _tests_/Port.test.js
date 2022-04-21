@@ -17,24 +17,28 @@ describe('Port', () => {
         
         expect(port.name).toEqual('Dover');
     })
+    describe('addShip', () => {
     it('can add a ship', () => {
        
-        const ship = {};
+        const ship = jest.fn();
 
         port.addShip(ship);
 
         expect(port.ships).toContain(ship);
     });
+})
+    describe('removeShip', () => {
     it('can remove a ship', () => {
        
-        const bismarck = {};
-        const arkRoyal = {};
+        const bismarck = jest.fn();
+        const arkRoyal = jest.fn();
 
         port.addShip(bismarck);
         port.addShip(arkRoyal);
-        port.removeShip(bismarck);
+        port.removeShip(arkRoyal);
 
         expect(port.ships).toEqual([bismarck]);
     });
+})
 });
 });

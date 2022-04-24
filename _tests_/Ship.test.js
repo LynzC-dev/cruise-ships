@@ -9,8 +9,13 @@ describe('Ship', () => {
         let dover;
         let calais;
         let itinerary;
+        let port; 
 
         beforeEach (() => {
+          port = {
+              addShip: jest.fn(),
+              removeShip: jest.fn(),
+          };
           dover = {
             addShip: jest.fn(),
             removeShip: jest.fn(),
@@ -24,18 +29,21 @@ describe('Ship', () => {
             ships: []
            };
             
-            itinerary = new Itinerary([dover, calais]);
+            itinerary = {
+                ports:[dover, calais]
+            };
+
             ship = new Ship(itinerary);
         });
 
    it('it can be instantiated', () => {
-       const port = new Port('Dover');
+    //    const port = new Port('Dover');
        const itinerary = new Itinerary([port]);
 
        expect(ship).toBeInstanceOf(Object);
    });
    it('has a starting port', () => {
-        const port = new Port('Dover');
+        // const port = new Port('Dover');
         const itinerary = new Itinerary([port]);
         const ship = new Ship(itinerary);
         
